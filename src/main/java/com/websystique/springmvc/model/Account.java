@@ -15,8 +15,7 @@ public class Account {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-    /*@Column(name = "user_id")
-    private int user_id;*/
+
 
     public int getAccount_id() {
         return account_id;
@@ -41,14 +40,6 @@ public class Account {
     public void setUser(User user) {
         this.user = user;
     }
-
-    /*public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }*/
 
     @Override
     public String toString() {

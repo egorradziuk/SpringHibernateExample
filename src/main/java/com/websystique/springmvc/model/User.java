@@ -16,7 +16,7 @@ public class User {
     @Column(name = "sure_name")
     private String sure_name;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     private List<Account> accounts = new ArrayList<Account>();
 
     @Transient

@@ -26,7 +26,7 @@
             <td>| Surename</td>
             <td>| AccountId</td>
             <td>| Account</td>
-            </td>|</td>
+            <td>|</td>
         </tr>
         <c:forEach items="${users}" var="user">
             <tr>
