@@ -14,10 +14,6 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     private AccountDao accountDao;
 
-    public int getMaxValue() {
-        return accountDao.getMaxValue();
-    }
-
     public BigDecimal sum() {
         return accountDao.sum();
     }

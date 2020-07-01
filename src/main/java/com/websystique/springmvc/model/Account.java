@@ -12,10 +12,11 @@ public class Account {
     @Column(name = "account")
     private int account;
 
-    /*@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")*/
-    @Column(name="user_id")
-    private int user_id;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+    /*@Column(name = "user_id")
+    private int user_id;*/
 
     public int getAccount_id() {
         return account_id;
@@ -33,20 +34,28 @@ public class Account {
         this.account = account;
     }
 
-    public int getUser_id() {
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    /*public int getUser_id() {
         return user_id;
     }
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;
-    }
+    }*/
 
     @Override
     public String toString() {
         return "Account [" +
                 "account_id=" + account_id +
                 ", account=" + account +
-                ", user_id=" + user_id +
+                ", user=" + user +
                 ']';
     }
 }

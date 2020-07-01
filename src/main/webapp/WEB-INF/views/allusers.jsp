@@ -7,38 +7,40 @@
     <title>Title</title>
 </head>
 <body>
-<table>
-    <tr>Richest user:
-        <td>${richestUser.fullName()}</td>
-    </tr>
-    <tr>Sum all accounts:
-        <td>${sum}</td>
-    </tr>
-</table>
 
-<form action="/" method="GET">
+<form action="/r" method="GET">
     <input type="text" value="${richestUser.fullName()}" readonly>
     <button type="submit">get</button>
 </form>
 
 
-<%--<form action="/" method="GET">
+<form action="/s" method="GET">
     <input type="text" value="${sum}" readonly>
     <button type="submit">get</button>
-</form>--%>
-
-<table>
-    <tr>
-        <td>| Id </td><td>| Name </td><td>| Surename</td><td>|</td>
-    </tr>
-    <c:forEach items="${users}" var="user">
+</form>
+<form action="/" method="GET">
+    <table>
         <tr>
-            <td>| ${user.user_id}</td>
-            <td>| ${user.name}</td>
-            <td>| ${user.sure_name}</td>
-            <td>|</td>
+            <td>| Id </td>
+            <td>| Name </td>
+            <td>| Surename</td>
+            <td>| AccountId</td>
+            <td>| Account</td>
+            </td>|</td>
         </tr>
-    </c:forEach>
-</table>
+        <c:forEach items="${users}" var="user">
+            <tr>
+                <td>| ${user.user_id}</td>
+                <td>| ${user.name}</td>
+                <td>| ${user.sure_name}</td>
+                <c:forEach items="${user.accounts}" var="account">
+                    <td>| ${account.account_id}</td>
+                    <td>| ${account.account}</td>
+                </c:forEach>
+            </tr>
+        </c:forEach>
+    </table>
+    <button type="submit">List</button>
+</form>
 </body>
 </html>

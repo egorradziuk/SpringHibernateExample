@@ -1,6 +1,7 @@
 package com.websystique.springmvc.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,9 +16,8 @@ public class User {
     @Column(name = "sure_name")
     private String sure_name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user_id")
-    private List<Account> accounts;
-
+    @OneToMany(mappedBy = "user")
+    private List<Account> accounts = new ArrayList<Account>();
 
     @Transient
     public String fullName() {
@@ -48,21 +48,21 @@ public class User {
         this.sure_name = sure_name;
     }
 
-    /*public List<Account> getAccounts() {
-            return accounts;
-        }
+    public List<Account> getAccounts() {
+        return accounts;
+    }
 
-        public void setAccounts(List<Account> accounts) {
-            this.accounts = accounts;
-        }
-    */
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+
     @Override
     public String toString() {
         return "User [" +
                 "userId=" + user_id +
                 ", name='" + name + '\'' +
                 ", sureName='" + sure_name + '\'' +
-                ", accounts=" /*+ accounts*/ +
+                ", accounts=" + accounts +
                 ']';
     }
 }

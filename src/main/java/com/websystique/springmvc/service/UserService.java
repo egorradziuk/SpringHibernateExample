@@ -7,5 +7,4 @@ import java.util.List;
 public interface UserService {
     User findByRichestUser();
     List<User> findAllUsers();
-    void print();
 }

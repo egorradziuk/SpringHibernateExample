@@ -7,5 +7,4 @@ import java.util.List;
 public interface UserDao {
     User findRichestUser();
     List<User> findAllUsers();
-    void print();
 }

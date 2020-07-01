@@ -23,7 +23,4 @@ public class UserServiceImpl implements UserService {
         return userDao.findAllUsers();
     }
 
-    public void print() {
-        userDao.print();
-    }
 }
